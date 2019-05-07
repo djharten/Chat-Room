@@ -180,7 +180,7 @@ app.controller('homeController', ['authentication', function homeController(auth
         return authentication.isLoggedIn();
     };
 
-    var socket = io.connect('http://localhost:3000');
+    var socket = io.connect('http://18.208.205.232');
     var msg = $("#message");
     var user = vm.currentUser().name;
     var sendMsg = $("#send_message");

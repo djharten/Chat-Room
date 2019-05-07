@@ -26,7 +26,7 @@ app.use(passport.initialize());
 
 app.use('/api', routesApi);
 
-server = app.listen(3000);
+server = app.listen(80);
 const io = require("socket.io")(server);
 
 //listen on every connection
