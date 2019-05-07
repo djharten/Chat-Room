@@ -181,8 +181,9 @@ app.controller('homeController', ['authentication', function homeController(auth
 
     var socket = io.connect('http://18.208.205.232');
     var msg = $("#message");
-    if(isLoggedIn)
+    if(isLoggedIn()) {
         var user = vm.currentUser().name;
+    }
     var sendMsg = $("#send_message");
     var chatRoom = $("#chatroom");
 
