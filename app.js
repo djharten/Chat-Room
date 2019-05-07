@@ -33,9 +33,6 @@ server.listen(80);
 //listen on every connection
 io.on('connection', (socket) => {
     socket.user = "NONE";
-    socket.on('change_username', (data) => {
-        socket.user = data.user;
-    });
     socket.on('new_message', (data) => {
         io.sockets.emit('new_message', {msg : data.msg, user : data.user});
     });
