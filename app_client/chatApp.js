@@ -191,7 +191,7 @@ app.controller('homeController', ['authentication', function homeController(auth
 
     socket.on("new_message", (data) => {
         msg.val('');
-        chatRoom.append("<p class='message'>" + vm.currentUser().name + ": " + data.msg + "TEST: " + data.user +"</p>")
+        chatRoom.append("<p class='message'>" + authentication.currentUser().name + ": " + data.msg + "</p>")
     })
 
 
