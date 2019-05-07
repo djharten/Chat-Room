@@ -37,6 +37,6 @@ io.on('connection', (socket) => {
         socket.user = data.user;
     });
     socket.on('new_message', (data) => {
-        io.sockets.emit('new_message', {msg : data.msg, user : socket.user});
+        io.sockets.emit('new_message', {msg : data.msg, user : data.user});
     });
 });
