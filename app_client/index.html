@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+<head>
+    <title>Dan Hartenstine's Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/chat-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="/lib/angular-route.min.js"></script>
+    <script src="/lib/angular-ui-router.min.js"></script>
+    <script src="/chatApp.js"></script>
+    <script src="/nav/navigation.js"></script>
+</head>
+<body>
+
+<!-- Navigation Directive -->
+<div ng-controller="NavigationController">
+    <navigation></navigation>
+</div>
+
+<!-- Angular page scripts -->
+
+<!-- home page -->
+<script type="text/ng-template" id="pages/home.html">
+    <div class="container nav-box">
+        <p></p>
+        <h1> {{ vm.title }} </h1>
+        <h4> {{ vm.message }} </h4>
+        <h4> {{ vm.userName }}</h4>
+        <section ng-show="vm.isLoggedIn()" id="chatroom">
+            <section id="feedback"></section>
+        </section>
+        <section ng-show="!vm.isLoggedIn()">Please log in to use the chat room!</section>
+        <section id="input_zone">
+            <input id="message" class="vertical-align" type="text" />
+            <button id="send_message" class="vertical-align" type="button">Send</button>
+        </section>
+    </div>
+</script> <!-- End home page -->
+
+<!-- blog register page -->
+<script type="text/ng-template" id="pages/register.html">
+    <div class="container nav-box">
+        <h1>{{ vm.pageHeader }}</h1>
+        <h4>{{ vm.message }}</h4>
+
+        <div class="blog-text-container">
+            <form ng-submit="vm.onSubmit()">
+                <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+                <div class="form-group">
+                    <label for="name">Full name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+                </div>
+                <button type="submit" class="btn btn-success">Register!</button>
+            </form>
+        </div>
+    </div>
+</script> <!-- end blog register page -->
+
+
+<!-- blog login page -->
+<script type="text/ng-template" id="pages/login.html">
+    <div class="container nav-box">
+        <p>Not a member? Please <a href="/#register?page={{ vm.returnPage }}">register</a> first.</p>
+        <form ng-submit="vm.onSubmit()">
+            <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+            </div>
+            <button type="submit" class="btn btn-default">Sign in!</button>
+        </form>
+    </div>
+</script> <!-- end blog login page -->
+
+<div ng-view></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

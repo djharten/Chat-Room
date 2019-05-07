@@ -1,0 +1,29 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "A very basic chat room",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "@angular/cli": "^7.3.7",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^7.0.0",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-jwt": "^5.3.1",
+    "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.13",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "request": "^2.88.0",
+    "nodemon": "^1.14.3",
+    "socket.io": "^2.0.4"
+  }
+}

@@ -1,0 +1,13 @@
+<!-- Nav bar -->
+<div class="banner">
+    <div class="topleft">
+        <a href="#/"></a>
+    </div>
+    <nav class="navbar">
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-color" href="#/">Chat</a></li>
+            <li><a ng-show="!vm.isLoggedIn()" class="navbar-color" href="#/login">Sign In</a></li>
+            <li><a ng-show="vm.isLoggedIn()" class="navbar-color" href="" ng-click="vm.logout()"Logout<small>Sign Out: ({{ vm.currentUser().email }})</small></a></li>
+        </ul>
+    </nav>
+</div> <!-- End nav bar -->
