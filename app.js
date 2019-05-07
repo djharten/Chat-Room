@@ -26,8 +26,9 @@ app.use(passport.initialize());
 
 app.use('/api', routesApi);
 
-server = app.listen(80);
+server = require('http').createServer(app);
 const io = require("socket.io")(server);
+server.listen(80);
 
 //listen on every connection
 io.on('connection', (socket) => {

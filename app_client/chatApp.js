@@ -172,7 +172,6 @@ app.controller('homeController', ['authentication', function homeController(auth
     var vm = this;
     vm.title = allTitle;
     vm.message = "Chat Away!";
-    vm.userName;
     vm.currentUser = function() {
         return authentication.currentUser();
     };
@@ -182,7 +181,8 @@ app.controller('homeController', ['authentication', function homeController(auth
 
     var socket = io.connect('http://18.208.205.232');
     var msg = $("#message");
-    var user = vm.currentUser().name;
+    if(isLoggedIn)
+        var user = vm.currentUser().name;
     var sendMsg = $("#send_message");
     var chatRoom = $("#chatroom");
 
