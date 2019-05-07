@@ -35,7 +35,7 @@
             <section id="feedback"></section>
         </section>
         <section ng-show="!vm.isLoggedIn()">Please log in to use the chat room!</section>
-        <section id="input_zone">
+        <section ng-show="vm.isLoggedIn()" id="input_zone">
             <input id="message" class="vertical-align" type="text" />
             <button id="send_message" class="vertical-align" type="button">Send</button>
         </section>
